@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Mobirise v5.3.10, mobirise.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="assets/images/logo-gympass-96x96.jpg" type="image/x-icon">
+  <meta name="description" content="">
+  
+  
+  <title>Alunos Cadastrados</title>
+  <link rel="stylesheet" href="assets/web/assets/mobirise-icons2/mobirise2.css">
+  <link rel="stylesheet" href="assets/web/assets/mobirise-icons/mobirise-icons.css">
+  <link rel="stylesheet" href="assets/tether/tether.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
+  <link rel="stylesheet" href="assets/formstyler/jquery.formstyler.css">
+  <link rel="stylesheet" href="assets/formstyler/jquery.formstyler.theme.css">
+  <link rel="stylesheet" href="assets/datepicker/jquery.datetimepicker.min.css">
+  <link rel="stylesheet" href="assets/dropdown/css/style.css">
+  <link rel="stylesheet" href="assets/socicon/css/styles.css">
+  <link rel="stylesheet" href="assets/theme/css/style.css">
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap"></noscript>
+  <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css"><link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+  
+<title>Professores Cadastrados</title>
+</head>
+<body>
+<section class="menu cid-s48OLK6784" once="menu" id="menu1-h">
+      
+      <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
+          <div class="container">
+              <div class="navbar-brand">
+                  <span class="navbar-logo">
+                      <a href="https://mobiri.se">
+                          <img src="assets/images/logo-gympass-96x96.jpg" alt="Mobirise" style="height: 3.8rem;">
+                      </a>
+                  </span>
+                  <form action="/" method="post">
+                  <span class="navbar-caption-wrap"><a class="navbar-caption text-black display-7" href="/">Academia GymSystem</a></span>
+                  </form>
+              </div>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                  <div class="hamburger">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                  </div>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+						<li class="nav-item"><a class="nav-link link text-black display-4"
+								href="/telaGerente">Voltar</a></li>
+              </div>
+      </nav>
+  </section>
+  <br>
+  <br>
+  <br>
+  <h1>Professores Cadastrados</h1>
+<table class="table table-striped">
+<tr>
+<th>Nome</th>
+<th>cpf</th>
+<th>Action</th>
+</tr>
+<tr th:each="professor : ${lista}">
+<td th:text="${professor.nome}"></td>
+<td th:text="${professor.cpf}"></td>
+<td>
+	<button onclick="myFuncdel()" type="button" class="btn btn-danger"><a th:href="|/excluirProfessor?id_professor=${professor.id_professor}|">Excluir</a></button>
+	<button  type="button"  class="btn btn-warning"><a th:href="|/editarProfessores?id_professor=${professor.id_professor}|">Editar</a></button>
+	<form action="/telaGerente" method="get">
+	
+</td>
+</tr>
+</table>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script type="text/javascript">
+  function myFuncdel() {
+	  swal("O Professor Foi Excluido do Banco de Dados!", "", "success");
+	  setTimeout(myDelete, 6000);
+	}
+  </script>
+  <footer> 
+            <div class="footer-about">
+                <div class="item-content align-center">
+                    &copy; Direitos Reservados www.gymsystem.com.br 
+                </div> 
+            </div>     
+       </footer>
+</body>
+</html>

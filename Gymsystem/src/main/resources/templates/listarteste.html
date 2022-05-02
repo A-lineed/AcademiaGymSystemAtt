@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html xmlns:th="wwww.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Mobirise v5.3.10, mobirise.com">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, minimum-scale=1">
+<link rel="shortcut icon" href="assets/images/logo-gympass-96x96.jpg"
+	type="image/x-icon">
+<meta name="description" content="">
+
+
+<title>Alunos Cadastrados</title>
+<link rel="stylesheet"
+	href="assets/web/assets/mobirise-icons2/mobirise2.css">
+<link rel="stylesheet"
+	href="assets/web/assets/mobirise-icons/mobirise-icons.css">
+<link rel="stylesheet" href="assets/tether/tether.min.css">
+<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="assets/bootstrap/css/bootstrap-grid.min.css">
+<link rel="stylesheet"
+	href="assets/bootstrap/css/bootstrap-reboot.min.css">
+<link rel="stylesheet" href="assets/formstyler/jquery.formstyler.css">
+<link rel="stylesheet"
+	href="assets/formstyler/jquery.formstyler.theme.css">
+<link rel="stylesheet"
+	href="assets/datepicker/jquery.datetimepicker.min.css">
+<link rel="stylesheet" href="assets/dropdown/css/style.css">
+<link rel="stylesheet" href="assets/socicon/css/styles.css">
+<link rel="stylesheet" href="assets/theme/css/style.css">
+<link rel="preload"
+	href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap"
+	as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript>
+	<link rel="stylesheet"
+		href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap">
+</noscript>
+<link rel="preload" as="style"
+	href="assets/mobirise/css/mbr-additional.css">
+<link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css"
+	type="text/css">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+	crossorigin="anonymous">
+<title>Insert title here</title>
+</head>
+<body>
+
+	
+		<section class="menu cid-s48OLK6784" once="menu" id="menu1-h">
+
+			<nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
+				<div class="container">
+					<div class="navbar-brand">
+						<span class="navbar-logo"> <a href="https://mobiri.se">
+								<img src="assets/images/logo-gympass-96x96.jpg" alt="Mobirise"
+								style="height: 3.8rem;">
+						</a>
+						</span>
+						<form action="/" method="post">
+							<span class="navbar-caption-wrap"><a
+								class="navbar-caption text-black display-7" href="/">Academia
+									GymSystem</a></span>
+						</form>
+					</div>
+					<button class="navbar-toggler" type="button" data-toggle="collapse"
+						data-target="#navbarSupportedContent"
+						aria-controls="navbarNavAltMarkup" aria-expanded="false"
+						aria-label="Toggle navigation">
+						<div class="hamburger">
+							<span></span> <span></span> <span></span> <span></span>
+						</div>
+					</button>
+				</div>
+			</nav>
+		</section>
+		<br>
+		<h1>Alunos Cadastrados</h1>
+		<form action="/pdf/generate" method="get">
+		<button>Imprimir</button>
+		</form>
+		<br> <br>
+		<table class="table table-striped">
+			<tr>
+				<th>Nome</th>
+				<th>Sexo</th>
+				<th>Data de Nascimento</th>
+				<th>cpf</th>
+				<th>rg</th>
+				<th>N</th>
+				<th>Bairro</th>
+				<th>Cidade</th>
+				<th>Email</th>
+				<th>Telefone</th>
+				<th>Senha</th>
+				<th>Action</th>
+			</tr>
+			<tr th:each="aluno : ${lista}">
+				<td th:text="${aluno.nome}"></td>
+				<td th:text="${aluno.sexo}"></td>
+				<td th:text="${aluno.dataNascimento}"></td>
+				<td th:text="${aluno.cpf}"></td>
+				<td th:text="${aluno.rg}"></td>
+				<td th:text="${aluno.numCasa}"></td>
+				<td th:text="${aluno.bairro}"></td>
+				<td th:text="${aluno.cidade}"></td>
+				<td th:text="${aluno.email}"></td>
+				<td th:text="${aluno.telefone}"></td>
+				<td th:text="${aluno.senha}"></td>
+				<td>
+					<button onclick="myDelete()" type="button" class="btn btn-danger">
+						<a th:href="|/excluirAluno?id_aluno=${aluno.id_aluno}|">Excluir</a>
+					</button>
+					<button type="button" class="btn btn-warning">
+						<a th:href="|/editarAluno?id_aluno=${aluno.id_aluno}|">Editar</a>
+					</button>
+					<form action="/telaGerente" method="get">
+				</td>
+			</tr>
+		</table>
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script type="text/javascript">
+  function myDelete() {
+	  swal("Aluno Removido com Sucesso!", "", "success");
+	  setTimeout(myDelete, 6000);
+	}
+  </script>
+  <footer> 
+            <div class="footer-about">
+                <div class="item-content align-center">
+                    &copy; Direitos Reservados www.gymsystem.com.br 
+                </div> 
+            </div>     
+       </footer>
+</body>
+</html>
